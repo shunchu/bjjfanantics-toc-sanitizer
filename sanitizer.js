@@ -1,15 +1,24 @@
-function titleCase(str) {
+/**
+ * Converts a string to title case, keeping small words lowercase unless they're the first or last word
+ * @param {string} str - The string to convert to title case
+ * @returns {string} The title-cased string
+ */
+const titleCase = (str) => {
   const smallWords = ['a','an','the','and','but','or','for','nor','so','yet','at','by','in','of','on','to','up','with','as','for','per','vs'];
   const words = str.toLowerCase().split(' ').filter(Boolean);
+  
   return words.map((word, i) => {
     if (i !== 0 && i !== words.length - 1 && smallWords.includes(word)) {
       return word;
     }
     return word.charAt(0).toUpperCase() + word.slice(1);
   }).join(' ');
-}
+};
 
-function sanitizeText() {
+/**
+ * Sanitizes and formats BJJ Fanatics table of contents text
+ */
+const sanitizeText = () => {
   const input = document.getElementById('inputText').value;
   const outputEl = document.getElementById('output');
   const lines = input.split(/\r?\n/);
@@ -96,10 +105,35 @@ function sanitizeText() {
 
   let result = outLines.join('\n').trim();
   outputEl.textContent = result;
-  // Show copy button
+  // Show copy button and setup clipboard functionality
   const copyBtn = document.getElementById('copyBtn');
   if (copyBtn) {
-    copyBtn.style.display = 'inline-block';
-    copyBtn.onclick = () => navigator.clipboard.writeText(result);
+    copyBtn.style.display = 'inline-flex';
+    copyBtn.onclick = () => {
+      navigator.clipboard.writeText(result)
+        .then(() => showNotification())
+        .catch(err => console.error('Could not copy text: ', err));
+    };
   }
-}
+};
+
+/**
+ * Shows a notification that text has been copied to clipboard
+ */
+const showNotification = () => {
+  const notification = document.getElementById('notification');
+  notification.classList.add('show');
+  
+  // Hide notification after 3 seconds
+  setTimeout(() => {
+    notification.classList.remove('show');
+  }, 3000);
+};
+
+// Initialize event listeners when DOM is fully loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const sanitizeBtn = document.getElementById('sanitizeBtn');
+  if (sanitizeBtn) {
+    sanitizeBtn.addEventListener('click', sanitizeText);
+  }
+});
