@@ -6,21 +6,23 @@
     <title>BJJFanatics TOC Sanitizer</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="./styles.css" />
-    <style>
-
-    </style>
   </head>
   <body>
     <div class="container">
-      <h1><span style="font-size:2.2rem;">🥋</span> BJJFanatics TOC Sanitizer</h1>
+      <h1>
+        <span>🥋</span> BJJFanatics TOC Sanitizer
+      </h1>
       <label for="inputText" class="toc-label">TOC Input:</label>
       <textarea id="inputText" placeholder="Paste sloppy BJJFanatics TOC here..."></textarea>
       <div class="button">
         <button onclick="sanitizeText()">Sanitize</button>
       </div>
+
+      <label for="output" class="toc-label">TOC Output:</label>
       <div class="output" id="output"></div>
+
       <div class="button">
-        <button id="copyBtn" style="display:none; margin-top:1rem;">Copy</button>
+        <button id="copyBtn">Copy</button>
       </div>
     </div>
     <script src="./sanitizer.js"></script>

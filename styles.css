@@ -1,16 +1,19 @@
 html, body {
-  height: 100%;
-  margin: 0;
+  /*height: 100%;*/
+  margin: 1rem 0;
   padding: 0;
   background: #f4f8fb;
 }
 body {
-  min-height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #f4f8fb;
+}
+h1 span {
+  font-size:2.2rem;
 }
 .container {
   background: #fff;
@@ -20,8 +23,8 @@ body {
   padding: 2.5rem 2.5rem 2rem 2.5rem;
   margin: 3vh auto;
   border-radius: 20px;
-  box-shadow: 0 8px 36px rgba(40,60,90,0.09), 0 1.5px 6px rgba(40,60,90,0.03);
-  border: 1.5px solid #e3e8ee;
+  box-shadow: 0 8px 36px rgba(40,60,90,0.09), 0 1px 6px rgba(40,60,90,0.03);
+  border: 1px solid #e3e8ee;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -41,7 +44,6 @@ h1 {
   display: block;
   font-weight: 700;
   font-size: 1.13rem;
-  margin-bottom: 0.7rem;
   color: #234075;
 }
 textarea {
@@ -61,7 +63,7 @@ textarea {
   transition: border 0.2s;
 }
 textarea:focus {
-  border: 1.5px solid #4a90e2;
+  border: 1px solid #4a90e2;
   outline: none;
 }
 .button {
@@ -71,7 +73,7 @@ textarea:focus {
   margin-bottom: 0.5rem;
 }
 button {
-  background: linear-gradient(90deg, #4a90e2 0%, #4CAF50 100%);
+  background-color: #4CAF50;
   color: #fff;
   padding: 0.8rem 2.3rem;
   border: none;
@@ -83,11 +85,13 @@ button {
   transition: background 0.2s, transform 0.1s;
 }
 button:hover {
-  background: linear-gradient(90deg, #357ab7 0%, #388e3c 100%);
+  background-color: #45a049;
   transform: translateY(-2px) scale(1.03);
 }
+#copyBtn {
+  display: none;
+}
 .output {
-  margin-top: 1.5rem;
   padding: 1.2rem 1.1rem;
   border: 1px solid #cfd8dc;
   background: #f7fafc;
@@ -98,7 +102,7 @@ button:hover {
   min-height: 100px;
   max-height: 32vh;
   overflow-y: auto;
-  box-shadow: 0 1.5px 4px rgba(0,0,0,0.03);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
 }
 @media (max-width: 700px) {
   .container {
